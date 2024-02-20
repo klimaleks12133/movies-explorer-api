@@ -19,7 +19,7 @@ const {
 const options = {
   origin: [
     'https://localhost:3001',
-    'http://localhost:3001'
+    'http://localhost:3001',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
