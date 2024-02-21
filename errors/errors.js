@@ -1,13 +1,17 @@
-const BadRequestError = require('./BadRequestError');
-const UnauthorizedError = require('./UnauthorizedError');
-const ForbiddenError = require('./ForbiddenError');
-const ConflictError = require('./ConflictError');
-const NotFoundError = require('./NotFoundError');
+const DefaultError = 500;
+const ValidationError = 400;
+const UnAuthorizedError = 401;
+const ForbiddenError = 403;
+const NotFoundError = 404;
+const DuplicateErrorCode = 11000;
+const ConflictError = 409;
 
 module.exports = {
-  BadRequestError,
-  UnauthorizedError,
+  DefaultError,
+  ValidationError,
+  UnAuthorizedError,
   ForbiddenError,
-  ConflictError,
   NotFoundError,
+  DuplicateErrorCode,
+  ConflictError,
 };

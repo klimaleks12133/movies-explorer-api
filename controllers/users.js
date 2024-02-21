@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const errorCodes = require('../errors/errors');
+const errors = require('../errors/errors');
 const ValidationError = require('../errors/BadRequestError');
 const DuplicateError = require('../errors/ConflictError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
@@ -24,7 +24,7 @@ const createUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError('Переданы некорректные данные при создании пользователя'));
-      } else if (err.code === errorCodes.DuplicateErrorCode) {
+      } else if (err.code === errors.DuplicateErrorCode) {
         next(new DuplicateError('Пользователь с указанным email уже существует'));
       } else {
         next(err);
@@ -64,7 +64,7 @@ const updateUserProfile = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError('Введены некорректные данные при обновлении пользователя'));
-      } else if (err.code === errorCodes.DuplicateErrorCode) {
+      } else if (err.code === errors.DuplicateErrorCode) {
         next(new DuplicateError('Пользователь с указанным email уже существует'));
       } else {
         next(err);
